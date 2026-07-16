@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Prayer &amp; Family Virtues</title>
+<!-- Praying Hands Favicon via SVG Data URI -->
+<link href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🙏&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+        :root {
+            /* Dark Mode Themes (Default Baseline) */
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-color: #818cf8;
+            --border-color: #334155;
+            --hover-bg: #334155;
+            --details-bg: #0f172a;
+        }
+
+        [data-theme="light"] {
+            /* Light Mode Theme Overrides */
+            --bg-color: #f1f5f9;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --accent-color: #4f46e5;
+            --border-color: #e2e8f0;
+            --hover-bg: #f8fafc;
+            --details-bg: #f8fafc;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Modern Segmented Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--card-bg);
+            padding: 12px 24px;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            background: var(--bg-color);
+            padding: 4px;
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 8px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tab-btn:hover {
+            color: var(--text-main);
+        }
+
+        .tab-btn.active {
+            background: var(--card-bg);
+            color: var(--accent-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-left: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+            user-select: none;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--hover-bg);
+        }
+
+        /* Main Layout Wrapper */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: var(--card-bg);
+            padding: 48px;
+            border-radius: 16px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        header {
+            margin-bottom: 36px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 24px;
+            transition: border-color 0.3s ease;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            color: var(--text-main);
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Responsive Grid Accordion Layout */
+        .list-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 16px;
+        }
+
+        .item {
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: var(--card-bg);
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+        }
+
+        .item:hover {
+            transform: translateY(-1px);
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .item-summary {
+            padding: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            user-select: none;
+        }
+
+        .item-summary:hover {
+            background-color: var(--hover-bg);
+        }
+
+        .keyword {
+            color: var(--text-main);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .arrow {
+            font-size: 11px;
+            color: var(--text-muted);
+            transition: transform 0.2s ease;
+        }
+
+        .item-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            background-color: var(--details-bg);
+        }
+
+        .item-details-content {
+            padding: 16px 18px;
+            color: var(--text-muted);
+            font-size: 14px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Opened Accordion Interactive Highlight */
+        .item.open {
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 12px -1px rgba(79, 70, 229, 0.15);
+        }
+
+        .item.open .keyword {
+            color: var(--accent-color);
+        }
+    
+.controls{display:flex;justify-content:flex-end;margin-bottom:16px}
+.expand-btn{background:var(--accent-color);color:#fff;border:none;padding:8px 14px;border-radius:20px;font-weight:600;cursor:pointer}
+</style>
+</head>
+<body>
+<nav>
+<div class="nav-wrapper">
+<button class="tab-btn active" onclick="switchTab('prayer-growth')">Prayer for Growth &amp; Character</button>
+<button class="tab-btn" onclick="switchTab('family-virtues')">Ward Family Virtues</button>
+</div>
+<button class="theme-toggle" id="theme-btn" onclick="toggleTheme()">☀️ Light</button>
+</nav>
+<main>
+<div class="container">
+<!-- DYNAMIC HEADER -->
+<header id="page-header">
+<h1 id="header-title">Prayer for Growth &amp; Character</h1>
+<p class="subtitle" id="header-subtitle">Lord, as I grow older, I pray that I may be known as:</p>
+</header>
+<!-- PAGE 1: PRAYER FOR GROWTH & CHARACTER (INTERACTIVE) -->
+<div class="page active" id="prayer-growth"><div class="controls"><button class="expand-btn" onclick="toggleAll(this)">Open All</button></div>
+<div class="list-container">
+<div class="item">
+<div class="item-summary" onclick="toggleItem(this)">
+<span class="keyword">⏳ Available</span>
+<span class="arrow">▼</span>
+</div>
+<div class="item-details"><div class="item-details-content">rather than overly busy or self-focused.</div></div>
+</div>
+<div class="item">
+<div class="item-summary" onclick="toggleItem(this)">
+<span class="keyword">❤️ Compassionate</span>
+<span class="arrow">▼</span>
+</div>
+<div class="item-details"><div class="item-details-content">more than confident.</div></div>
+</div>
+<div class="item">
+<div class="item-summary" onclick="toggleItem(this)">
+<span class="keyword">⚓ Content</span>
+<span class="arrow">▼</span>
+</div>
+<div class="item-details"><div class="item-details-content">not driven by ambition or comparison.</div></div>
+</div>
+<div class="item">
+<div class="item-summary" onclick="toggleItem(this)">
+<span class="keyword">🗣️ Encouraging</span>
+<span class="arrow">▼</span>
+</div>
+<div class="item-details"><div class="item-details-content">more than critical.</div></div>
+</div>
+<div class="item">
+<div class="item-summary" onclick="toggleItem(this)">
+<span class="keyword">🤝 Empathetic</span>
+<span class="arrow">▼</span>
+</div>
+<div class="item-details"><div class="item-details-content">striving to deeply understand and share in others' pain and joy.</div></div>
+</div>
+<div class="item">
+<div class="item-summary" onclick="toggleItem(this)">
+<span class="keyword">🛡️ Faithful</span>
+<span class="arrow">▼</span>
+</div>
+<div class="item-details"><div class="item-details-content">in all that I say and do.</div></div>
+</div>
+<div class="item">
+<div class="item-summary" onclick="toggleItem(this)">
+<span class="keyword">🕊️ Forgiving</span>
+<span class="arrow">▼</span>
+</div>
+<div class="item-details"><div class="item-details-content">rather than holding grudges.</div></div>
+</div>
+<div class="item">
+<div class="item-summary" onclick="toggleItem(this)">
+<span class="keyword">🤲 Generous</span>
+<span class="arrow">▼</span>
+</div>
+<div class="item-details"><div class="item-details-content">giving my time and resources rather than merely accumulating wealth.</div></div>
+</div>
+<div class="item">
+<div class="item-summary" onclick="toggleItem(this)">
+<span class="keyword">🍃 Gentle</span>
+<span class="arrow">▼</span>
+</div>
+<div class="item-details"><div class="item-details-content">choosing kindness and strength over dominance or intimidation.</div></div>
+</div>
+<div class="item">
+<div class="item-summary" onclick="toggleItem(this)">
+<span class="keyword">👂 A listener</span>
+<span class="arrow">▼</span>
+</div>
+<div class="item-details"><div class="item-details-content">valuing understanding over the need to be heard.</div></div>
+</div>
+<div class="item">
+<div class="item-summary" onclick="toggleItem(this)">
+<span class="keyword">💝 Loving</span>
+<span class="arrow">▼</span>
+</div>
+<div class="item-details"><div class="item-details-content">prioritizing grace over the need to be right.</div></div>
+</div>
+<div class="item">
+<div class="item-summary" onclick="toggleItem(this)">
+<span class="keyword">🌾 Meek</span>
+<span class="arrow">▼</span>
+</div>
+<div class="item-details"><div class="item-details-content">showing strength through humility.</div></div>
+</div>
+<div class="item">
+<div class="item-summary" onclick="toggleItem(this)">
+<span class="keyword">🧱 Reliable</span>
+<span class="arrow">▼</span>
+</div>
+<div class="item-details"><div class="item-details-content">seeking to be trustworthy rather than chasing fame or recognition.</div></div>
+</div>
+<div class="item">
+<div class="item-summary" onclick="toggleItem(this)">
+<span class="keyword">🕯️ Sacrificial</span>
+<span class="arrow">▼</span>
+</div>
+<div class="item-details"><div class="item-details-content">valuing service over mere achievement.</div></div>
+</div>
+<div class="item">
+<div class="item-summary" onclick="toggleItem(this)">
+<span class="keyword">🛑 Self-controlled</span>
+<span class="arrow">▼</span>
+</div>
+<div class="item-details"><div class="item-details-content">prioritizing wisdom over impulsive desires.</div></div>
+</div>
+<div class="item">
+<div class="item-summary" onclick="toggleItem(this)">
+<span class="keyword">💡 Thoughtful</span>
+<span class="arrow">▼</span>
+</div>
+<div class="item-details"><div class="item-details-content">using wisdom and care in all decisions.</div></div>
+</div>
+</div>
+</div>
+<!-- PAGE 2: WARD FAMILY VIRTUES (INTERACTIVE) -->
+<div class="page" id="family-virtues"><div class="controls"><button class="expand-btn" onclick="toggleAll(this)">Open All</button></div>
+<div class="list-container">
+<div class="item">
+<div class="item-summary" onclick="toggleItem(this)">
+<span class="keyword">☤ Stewardship &amp; Servant Leadership</span>
+<span class="arrow">▼</span>
+</div>
+<div class="item-details"><div class="item-details-content">Taking care of what we have been given, using our talents to serve others, and actively working to leave things better for future generations.</div></div>
+</div>
+<div class="item">
+<div class="item-summary" onclick="toggleItem(this)">
+<span class="keyword">💎 Integrity (Honesty &amp; Humility)</span>
+<span class="arrow">▼</span>
+</div>
+<div class="item-details"><div class="item-details-content">Walking truthfully according to biblical principles, doing the right thing when no one is looking, and maintaining a humble heart that puts others first.</div></div>
+</div>
+<div class="item">
+<div class="item-summary" onclick="toggleItem(this)">
+<span class="keyword">☀️ Joyful Resilience &amp; Positivity</span>
+<span class="arrow">▼</span>
+</div>
+<div class="item-details"><div class="item-details-content">Meeting life's challenges with a positive attitude, choosing joy, and leaning on the strength to bounce back when things get chaotic or tough.</div></div>
+</div>
+<div class="item">
+<div class="item-summary" onclick="toggleItem(this)">
+<span class="keyword">🌊 Peace &amp; Patience</span>
+<span class="arrow">▼</span>
+</div>
+<div class="item-details"><div class="item-details-content">Cultivating a calm, reassuring atmosphere in the home where everyone is quick to listen, slow to speak, and committed to creating a safe haven for one another.</div></div>
+</div>
+<div class="item">
+<div class="item-summary" onclick="toggleItem(this)">
+<span class="keyword">⚖️ Self-Control</span>
+<span class="arrow">▼</span>
+</div>
+<div class="item-details"><div class="item-details-content">Practicing the daily discipline to govern our own actions, emotions, and responses, keeping our boundaries strong and our faith active.</div></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+
+            // Dynamic Header Updates
+            const title = document.getElementById('header-title');
+            const subtitle = document.getElementById('header-subtitle');
+
+            if (tabId === 'family-virtues') {
+                title.textContent = "Ward Family Virtues";
+                subtitle.textContent = "Our Foundation: Core Family Virtues";
+            } else {
+                title.textContent = "Prayer for Growth & Character";
+                subtitle.textContent = "Lord, as I grow older, I pray that I may be known as:";
+            }
+        }
+
+        function toggleItem(summaryElement) {
+            const item = summaryElement.parentElement;
+            const details = item.querySelector('.item-details');
+            const arrow = item.querySelector('.arrow');
+            
+            if (item.classList.contains('open')) {
+                details.style.maxHeight = null;
+                item.classList.remove('open');
+                arrow.textContent = '▼';
+            } else {
+                details.style.maxHeight = details.scrollHeight + "px";
+                item.classList.add('open');
+                arrow.textContent = '▲';
+            }
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const btn = document.getElementById('theme-btn');
+            
+            if (currentTheme === 'light') {
+                document.documentElement.removeAttribute('data-theme');
+                btn.innerHTML = '☀️ Light';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                btn.innerHTML = '🌙 Dark';
+            }
+        }
+    
+
+function toggleAll(btn){
+ const page=btn.closest('.page');
+ const items=page.querySelectorAll('.item');
+ const opening=btn.textContent==='Open All';
+ items.forEach(item=>{
+   const d=item.querySelector('.item-details');
+   const a=item.querySelector('.arrow');
+   if(opening){
+      d.style.maxHeight=d.scrollHeight+'px';
+      item.classList.add('open');
+      a.textContent='▲';
+   } else {
+      d.style.maxHeight=null;
+      item.classList.remove('open');
+      a.textContent='▼';
+   }
+ });
+ btn.textContent=opening?'Close All':'Open All';
+}
+</script>
+</body>
+</html>
