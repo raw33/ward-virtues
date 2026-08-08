@@ -230,6 +230,36 @@
         .item.open .keyword {
             color: var(--accent-color);
         }
+
+        .fruit-tags {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px;
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .fruit-tags-label {
+            margin-right: 2px;
+            color: var(--text-muted);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .fruit-tag {
+            padding: 3px 8px;
+            border: 1px solid color-mix(in srgb, var(--accent-color) 35%, var(--border-color));
+            border-radius: 999px;
+            background: color-mix(in srgb, var(--accent-color) 10%, transparent);
+            color: var(--accent-color);
+            font-size: 11px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
     
 .controls{display:flex;justify-content:flex-end;margin-bottom:16px}
 .expand-btn{background:var(--accent-color);color:#fff;border:none;padding:8px 14px;border-radius:20px;font-weight:600;cursor:pointer}
@@ -489,35 +519,42 @@
 <span class="keyword">☤ Stewardship &amp; Servant Leadership</span>
 <span class="arrow">▼</span>
 </div>
-<div class="item-details"><div class="item-details-content">Taking care of what we have been given, using our talents to serve others, and actively working to leave things better for future generations.</div></div>
+<div class="item-details"><div class="item-details-content">Taking care of what we have been given, using our talents to serve others, and actively working to leave things better for future generations.<div aria-label="Fruits of the Spirit: Goodness" class="fruit-tags"><span class="fruit-tags-label">Fruits of the Spirit</span><span class="fruit-tag">Goodness</span></div></div></div>
 </div>
 <div class="item">
 <div class="item-summary" onclick="toggleItem(this)">
 <span class="keyword">💎 Integrity (Honesty &amp; Humility)</span>
 <span class="arrow">▼</span>
 </div>
-<div class="item-details"><div class="item-details-content">Walking truthfully according to biblical principles, doing the right thing when no one is looking, and maintaining a humble heart that puts others first.</div></div>
+<div class="item-details"><div class="item-details-content">Walking truthfully according to biblical principles, doing the right thing when no one is looking, and maintaining a humble heart that puts others first.<div aria-label="Fruits of the Spirit: Faithfulness" class="fruit-tags"><span class="fruit-tags-label">Fruits of the Spirit</span><span class="fruit-tag">Faithfulness</span></div></div></div>
 </div>
 <div class="item">
 <div class="item-summary" onclick="toggleItem(this)">
 <span class="keyword">☀️ Joyful Resilience &amp; Positivity</span>
 <span class="arrow">▼</span>
 </div>
-<div class="item-details"><div class="item-details-content">Meeting life's challenges with a positive attitude, choosing joy, and leaning on the strength to bounce back when things get chaotic or tough.</div></div>
+<div class="item-details"><div class="item-details-content">Meeting life's challenges with a positive attitude, choosing joy, and leaning on the strength to bounce back when things get chaotic or tough.<div aria-label="Fruits of the Spirit: Joy" class="fruit-tags"><span class="fruit-tags-label">Fruits of the Spirit</span><span class="fruit-tag">Joy</span></div></div></div>
 </div>
 <div class="item">
 <div class="item-summary" onclick="toggleItem(this)">
 <span class="keyword">🌊 Peace &amp; Patience</span>
 <span class="arrow">▼</span>
 </div>
-<div class="item-details"><div class="item-details-content">Cultivating a calm, reassuring atmosphere in the home where everyone is quick to listen, slow to speak, and committed to creating a safe haven for one another.</div></div>
+<div class="item-details"><div class="item-details-content">Cultivating a calm, reassuring atmosphere in the home where everyone is quick to listen, slow to speak, and committed to creating a safe haven for one another.<div aria-label="Fruits of the Spirit: Peace and Patience" class="fruit-tags"><span class="fruit-tags-label">Fruits of the Spirit</span><span class="fruit-tag">Peace</span><span class="fruit-tag">Patience</span></div></div></div>
 </div>
 <div class="item">
 <div class="item-summary" onclick="toggleItem(this)">
 <span class="keyword">⚖️ Self-Control</span>
 <span class="arrow">▼</span>
 </div>
-<div class="item-details"><div class="item-details-content">Practicing the daily discipline to govern our own actions, emotions, and responses, keeping our boundaries strong and our faith active.</div></div>
+<div class="item-details"><div class="item-details-content">Practicing the daily discipline to govern our own actions, emotions, and responses, keeping our boundaries strong and our faith active.<div aria-label="Fruits of the Spirit: Self-Control" class="fruit-tags"><span class="fruit-tags-label">Fruits of the Spirit</span><span class="fruit-tag">Self-Control</span></div></div></div>
+</div>
+<div class="item">
+<div class="item-summary" onclick="toggleItem(this)">
+<span class="keyword">🤍 Grace &amp; Forgiveness</span>
+<span class="arrow">▼</span>
+</div>
+<div class="item-details"><div class="item-details-content">Remembering that we all fall short, receiving Christ’s forgiveness when we ask, and freely extending that same grace to others.<div aria-label="Fruits of the Spirit: Love, Kindness, and Gentleness" class="fruit-tags"><span class="fruit-tags-label">Fruits of the Spirit</span><span class="fruit-tag">Love</span><span class="fruit-tag">Kindness</span><span class="fruit-tag">Gentleness</span></div></div></div>
 </div>
 </div>
 </div>
