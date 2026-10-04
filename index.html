@@ -163,14 +163,6 @@ h1 {
   line-height: 1.35;
 }
 
-.toolbar {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin: 26px 0 14px;
-  flex-wrap: wrap;
-}
-
 .action-btn {
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -533,15 +525,6 @@ h1 {
     font-size: 16px;
   }
 
-  .toolbar {
-    justify-content: stretch;
-    margin: 18px 0 8px;
-  }
-
-  .toolbar .action-btn {
-    width: 100%;
-  }
-
   .prayer-item {
     padding: 15px 0;
   }
@@ -645,7 +628,6 @@ h1 {
 
 @media print {
   .site-header,
-  .toolbar,
   .virtue-nav,
   .pager,
   .site-footer {
@@ -704,10 +686,6 @@ h1 {
       <aside class="callout" aria-label="Prayer opening">
         <p>May these words be less of a checklist and more of a direction for a faithful life.</p>
       </aside>
-    </div>
-
-    <div class="toolbar">
-      <button class="action-btn" type="button" onclick="window.print()">Print</button>
     </div>
 
     <div class="reader-list" id="prayer-list"></div>
