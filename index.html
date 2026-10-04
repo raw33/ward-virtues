@@ -391,9 +391,36 @@ h1 {
 .site-footer {
   border-top: 1px solid var(--line);
   color: var(--muted);
-  padding: 22px;
-  text-align: center;
+  padding: 28px 22px;
+  font-size: 13px;
+}
+
+.footer-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  gap: 8px;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer a {
+  color: var(--blue);
+  font-weight: 800;
+  text-decoration-color: color-mix(in srgb, var(--blue) 35%, transparent);
+  text-underline-offset: 3px;
+}
+
+.site-footer a:hover {
+  text-decoration-color: var(--blue);
+}
+
+.footer-title {
+  color: var(--navy);
   font-size: 14px;
+  font-weight: 900;
 }
 
 @media (max-width: 860px) {
@@ -723,7 +750,11 @@ h1 {
 </main>
 
 <footer class="site-footer">
-  Prayer & Family Virtues
+  <div class="footer-inner">
+    <p class="footer-title">Prayer & Family Virtues</p>
+    <p>Prayer for Growth & Character is adapted and revised from a prayer by John C. Maxwell in <a href="https://store.maxwellleadership.com/products/developing-the-leader-within-you-2-0-all-new-for-todays-generation-of-leaders-paperback">Developing the Leader Within You 2.0</a>.</p>
+    <p>Ward Family Virtues were inspired by the family-values reflection in <a href="https://www.harpercollinsleadership.com/9780718077259/lead-like-jesus-revisited/">Lead Like Jesus Revisited</a> and encouraged by Mark Deterding's servant-leadership work in <a href="https://triuneleadershipservices.com/old-books/old-leadingjesusway/">Leading Jesus' Way</a>.</p>
+  </div>
 </footer>
 
 <script>
