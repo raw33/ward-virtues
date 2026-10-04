@@ -1,0 +1,20 @@
+# Prayer & Family Virtues
+
+This site contains a personal prayer for growth and character and the Ward Family Virtues.
+It is a separate personal values page connected from RichWard.org.
+
+## Canonical URL
+- https://virtues.richward.org/
+
+## Main sections
+- Prayer for Growth & Character: a personal prayer adapted and revised from a prayer by John C. Maxwell in *Developing the Leader Within You 2.0*.
+- Ward Family Virtues: four family virtues: Stewardship through Servant Leadership, Joy + Positivity, Peace with Patience, and Grace + Forgiveness.
+
+## Ward Family Virtues
+- Stewardship through Servant Leadership: Goodness, Faithfulness
+- Joy + Positivity: Joy
+- Peace with Patience: Peace, Patience, Gentleness, Self-Control
+- Grace + Forgiveness: Love, Kindness
+
+## Related site
+- Rich Ward public-service website: https://richward.org/

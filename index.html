@@ -5,10 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Prayer & Family Virtues</title>
 <meta name="description" content="A prayer for growth and character, alongside the Ward Family Virtues.">
+<link rel="canonical" href="https://virtues.richward.org/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23132338'/%3E%3Cpath d='M18 34l9 9 19-22' fill='none' stroke='%23c78f3f' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://virtues.richward.org/">
+<meta property="og:title" content="Prayer & Family Virtues">
+<meta property="og:description" content="A prayer for growth and character, alongside the Ward Family Virtues.">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Prayer & Family Virtues",
+  "url": "https://virtues.richward.org/",
+  "description": "A prayer for growth and character, alongside the Ward Family Virtues.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Rich Ward",
+    "url": "https://richward.org/"
+  },
+  "about": [
+    "Prayer for Growth and Character",
+    "Ward Family Virtues",
+    "Fruits of the Spirit",
+    "Family values"
+  ]
+}
+</script>
 <style>
 :root {
   --page: #f5f1e8;
@@ -40,6 +66,29 @@ body {
 
 button { font: inherit; }
 button { cursor: pointer; }
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: 12px;
+  z-index: 20;
+  transform: translateY(-140%);
+  border-radius: 8px;
+  background: var(--navy);
+  color: #fff;
+  padding: 10px 12px;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--blue) 70%, white);
+  outline-offset: 3px;
+}
 
 .site-header {
   position: sticky;
@@ -662,26 +711,27 @@ h1 {
 </style>
 </head>
 <body>
+<a class="skip-link" href="#content">Skip to content</a>
 <header class="site-header">
   <div class="nav-shell">
     <a class="brand" href="#top" aria-label="Prayer and Ward Family Virtues">
       <strong>Ward Virtues</strong>
       <span>Prayer & Family Virtues</span>
     </a>
-    <nav class="tabs" aria-label="Sections">
-      <button class="tab-btn active" type="button" data-tab="prayer">Prayer for Growth</button>
-      <button class="tab-btn" type="button" data-tab="virtues">Ward Family Virtues</button>
+    <nav class="tabs" aria-label="Sections" role="tablist">
+      <button aria-controls="prayer" aria-selected="true" class="tab-btn active" id="tab-prayer" role="tab" type="button" data-tab="prayer">Prayer for Growth</button>
+      <button aria-controls="virtues" aria-selected="false" class="tab-btn" id="tab-virtues" role="tab" type="button" data-tab="virtues">Ward Family Virtues</button>
     </nav>
   </div>
 </header>
 
-<main id="top">
-  <section class="page active" id="prayer" aria-labelledby="prayer-title">
+<main id="content">
+  <section aria-labelledby="prayer-title" aria-describedby="prayer-description" class="page active" id="prayer" role="tabpanel" tabindex="0">
     <div class="hero">
       <div>
         <p class="eyebrow">Prayer for growth and character</p>
         <h1 id="prayer-title">Lord, as I grow older...</h1>
-        <p class="lead">I pray that I may be known by the shape of my character, the fruit of my choices, and the way I love the people around me.</p>
+        <p class="lead" id="prayer-description">I pray that I may be known by the shape of my character, the fruit of my choices, and the way I love the people around me.</p>
       </div>
       <aside class="callout" aria-label="Prayer opening">
         <p>May these words be less of a checklist and more of a direction for a faithful life.</p>
@@ -691,12 +741,12 @@ h1 {
     <div class="reader-list" id="prayer-list"></div>
   </section>
 
-  <section class="page" id="virtues" aria-labelledby="virtues-title">
+  <section aria-labelledby="virtues-title" aria-describedby="virtues-description" class="page" hidden id="virtues" role="tabpanel" tabindex="0">
     <div class="hero">
       <div>
         <p class="eyebrow">Ward family virtues</p>
         <h1 id="virtues-title">A simple pattern for our home.</h1>
-        <p class="lead">Four virtues for remembering what we are trying to practice together, with every Fruit of the Spirit carried into the language.</p>
+        <p class="lead" id="virtues-description">Four virtues for remembering what we are trying to practice together, with every Fruit of the Spirit carried into the language.</p>
       </div>
       <aside class="callout" aria-label="Virtues summary">
         <p>Stewardship. Joy. Peace. Grace. A compact set with enough room to live inside.</p>
@@ -717,8 +767,8 @@ h1 {
         <p id="virtue-description"></p>
         <div class="fruit-row" id="virtue-fruits"></div>
         <div class="pager">
-          <button class="action-btn" type="button" onclick="moveVirtue(-1)">Previous</button>
-          <button class="action-btn" type="button" onclick="moveVirtue(1)">Next</button>
+          <button aria-label="Show previous family virtue" class="action-btn" type="button" onclick="moveVirtue(-1)">Previous</button>
+          <button aria-label="Show next family virtue" class="action-btn" type="button" onclick="moveVirtue(1)">Next</button>
         </div>
       </article>
     </div>
@@ -793,7 +843,7 @@ function renderPrayer() {
 function renderVirtueButtons() {
   const buttons = document.getElementById("virtue-buttons");
   buttons.innerHTML = virtues.map((virtue, index) => `
-    <button class="virtue-select" type="button" onclick="showVirtue(${index})">
+    <button aria-pressed="false" class="virtue-select" type="button" onclick="showVirtue(${index})">
       <strong>${virtue.title}</strong>
       <span>${virtue.fruits.join(", ")}</span>
     </button>
@@ -821,7 +871,9 @@ function showVirtue(index) {
   document.getElementById("virtue-description").textContent = virtue.description;
   document.getElementById("virtue-fruits").innerHTML = virtue.fruits.map(fruit => `<span class="fruit-tag">${fruit}</span>`).join("");
   document.querySelectorAll(".virtue-select").forEach((button, index) => {
-    button.classList.toggle("active", index === currentVirtue);
+    const isActive = index === currentVirtue;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
   });
 }
 
@@ -830,8 +882,16 @@ function moveVirtue(step) {
 }
 
 function switchTab(tabId) {
-  document.querySelectorAll(".page").forEach(page => page.classList.toggle("active", page.id === tabId));
-  document.querySelectorAll(".tab-btn").forEach(button => button.classList.toggle("active", button.dataset.tab === tabId));
+  document.querySelectorAll(".page").forEach(page => {
+    const isActive = page.id === tabId;
+    page.classList.toggle("active", isActive);
+    page.hidden = !isActive;
+  });
+  document.querySelectorAll(".tab-btn").forEach(button => {
+    const isActive = button.dataset.tab === tabId;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-selected", String(isActive));
+  });
   history.replaceState(null, "", "#" + tabId);
 }
 
