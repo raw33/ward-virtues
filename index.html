@@ -38,7 +38,7 @@ body {
   line-height: 1.6;
 }
 
-button, input { font: inherit; }
+button { font: inherit; }
 button { cursor: pointer; }
 
 .site-header {
@@ -88,6 +88,7 @@ button { cursor: pointer; }
 }
 
 .tab-btn {
+  min-width: 0;
   border: 0;
   border-radius: 999px;
   background: transparent;
@@ -164,25 +165,10 @@ h1 {
 
 .toolbar {
   display: flex;
+  justify-content: flex-end;
   gap: 10px;
   margin: 26px 0 14px;
   flex-wrap: wrap;
-}
-
-.search {
-  min-width: min(100%, 280px);
-  flex: 1 1 320px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(255,255,255,.92);
-  color: var(--ink);
-  padding: 12px 14px;
-  outline: none;
-}
-
-.search:focus {
-  border-color: var(--blue);
-  box-shadow: 0 0 0 4px rgba(49, 95, 125, .13);
 }
 
 .action-btn {
@@ -234,6 +220,10 @@ h1 {
   min-height: 600px;
 }
 
+.focus-layout > * {
+  min-width: 0;
+}
+
 .virtue-nav {
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -257,6 +247,8 @@ h1 {
 .virtue-buttons {
   display: grid;
   gap: 8px;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .virtue-select {
@@ -437,10 +429,190 @@ h1 {
     display: flex;
     overflow-x: auto;
     padding-bottom: 4px;
+    scroll-snap-type: x mandatory;
   }
 
   .virtue-select {
     min-width: 220px;
+    scroll-snap-align: start;
+    background: rgba(255,255,255,.58);
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    background:
+      radial-gradient(circle at 0% 0%, rgba(199, 143, 63, .16), transparent 30%),
+      linear-gradient(180deg, #fbfaf6, var(--page));
+  }
+
+  .site-header {
+    position: static;
+  }
+
+  .nav-shell {
+    gap: 12px;
+    padding: 12px 14px;
+  }
+
+  .brand span {
+    display: none;
+  }
+
+  .tabs {
+    border-radius: 8px;
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .tab-btn {
+    border-radius: 6px;
+    padding: 9px 8px;
+    font-size: 12px;
+    line-height: 1.15;
+    white-space: normal;
+  }
+
+  main {
+    padding: 28px 14px 46px;
+  }
+
+  .hero {
+    gap: 18px;
+    margin-bottom: 24px;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: .09em;
+  }
+
+  h1 {
+    font-size: clamp(36px, 12vw, 48px);
+    line-height: 1;
+  }
+
+  .lead {
+    font-size: 17px;
+    line-height: 1.48;
+  }
+
+  .callout {
+    padding: 16px;
+    box-shadow: 0 14px 32px rgba(19, 35, 56, .08);
+  }
+
+  .callout p {
+    font-size: 16px;
+  }
+
+  .toolbar {
+    justify-content: stretch;
+    margin: 18px 0 8px;
+  }
+
+  .toolbar .action-btn {
+    width: 100%;
+  }
+
+  .prayer-item {
+    padding: 15px 0;
+  }
+
+  .prayer-item h2 {
+    font-size: 18px;
+  }
+
+  .prayer-item p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .focus-layout {
+    gap: 14px;
+    min-height: 0;
+  }
+
+  .virtue-nav {
+    padding: 14px;
+    box-shadow: 0 12px 32px rgba(19, 35, 56, .06);
+  }
+
+  .virtue-nav h2 {
+    font-size: 18px;
+  }
+
+  .virtue-nav p {
+    display: none;
+  }
+
+  .virtue-select {
+    min-width: 190px;
+    padding: 10px;
+  }
+
+  .virtue-select strong {
+    font-size: 13px;
+  }
+
+  .virtue-select span {
+    font-size: 11px;
+  }
+
+  .virtue-reader {
+    padding: 22px 18px;
+    box-shadow: 0 16px 42px rgba(19, 35, 56, .10);
+  }
+
+  .virtue-mark {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 18px;
+    font-size: 22px;
+  }
+
+  .virtue-reader h2 {
+    font-size: clamp(30px, 10vw, 42px);
+    line-height: 1;
+  }
+
+  .virtue-reader p {
+    font-size: 18px;
+    line-height: 1.44;
+  }
+
+  .fruit-row {
+    margin-top: 20px;
+  }
+
+  .fruit-tag {
+    padding: 5px 8px;
+    font-size: 11px;
+  }
+
+  .pager {
+    margin-top: 28px;
+  }
+
+  .pager .action-btn {
+    flex: 1;
+    padding-inline: 10px;
+  }
+
+  .all-virtues {
+    margin-top: 14px;
+  }
+
+  .all-card {
+    padding: 16px;
+  }
+}
+
+@media (min-width: 861px) {
+  .virtue-nav {
+    align-self: start;
+    position: sticky;
+    top: 96px;
   }
 }
 
@@ -508,7 +680,6 @@ h1 {
     </div>
 
     <div class="toolbar">
-      <input class="search" id="prayer-search" type="search" placeholder="Search the prayer">
       <button class="action-btn" type="button" onclick="window.print()">Print</button>
     </div>
 
@@ -657,13 +828,6 @@ function switchTab(tabId) {
 
 document.querySelectorAll(".tab-btn").forEach(button => {
   button.addEventListener("click", () => switchTab(button.dataset.tab));
-});
-
-document.getElementById("prayer-search").addEventListener("input", event => {
-  const query = event.target.value.trim().toLowerCase();
-  document.querySelectorAll(".prayer-item").forEach(item => {
-    item.hidden = query && !item.textContent.toLowerCase().includes(query);
-  });
 });
 
 renderPrayer();
