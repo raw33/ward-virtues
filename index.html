@@ -299,6 +299,10 @@ h1 {
   background: transparent;
   color: var(--ink);
   padding: 12px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 10px;
   text-align: left;
 }
 
@@ -308,12 +312,37 @@ h1 {
   line-height: 1.25;
 }
 
-.virtue-select span {
+.virtue-select .virtue-fruits {
   display: block;
   margin-top: 3px;
   color: var(--muted);
   font-size: 12px;
   font-weight: 800;
+}
+
+.virtue-copy {
+  display: block;
+  margin-top: 0;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  min-width: 0;
+}
+
+.virtue-select .virtue-rank {
+  margin-top: 1px;
+  width: 22px;
+  height: 22px;
+  border: 1px solid color-mix(in srgb, var(--gold) 34%, var(--line));
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--gold-soft) 62%, #fff);
+  color: var(--navy);
+  padding: 0;
+  font-size: 10px;
+  font-weight: 950;
+  line-height: 1;
 }
 
 .virtue-select:hover {
@@ -327,8 +356,14 @@ h1 {
   color: #fff;
 }
 
-.virtue-select.active span {
+.virtue-select.active .virtue-fruits {
   color: rgba(255,255,255,.74);
+}
+
+.virtue-select.active .virtue-rank {
+  border-color: color-mix(in srgb, var(--gold) 46%, rgba(255,255,255,.28));
+  background: var(--gold-soft);
+  color: var(--navy);
 }
 
 .virtue-reader {
@@ -608,14 +643,21 @@ h1 {
   .virtue-select {
     min-width: 190px;
     padding: 10px;
+    gap: 8px;
   }
 
   .virtue-select strong {
     font-size: 13px;
   }
 
-  .virtue-select span {
+  .virtue-select .virtue-fruits {
     font-size: 11px;
+  }
+
+  .virtue-select .virtue-rank {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
   }
 
   .virtue-reader {
@@ -844,8 +886,11 @@ function renderVirtueButtons() {
   const buttons = document.getElementById("virtue-buttons");
   buttons.innerHTML = virtues.map((virtue, index) => `
     <button aria-pressed="false" class="virtue-select" type="button" onclick="showVirtue(${index})">
-      <strong>${virtue.title}</strong>
-      <span>${virtue.fruits.join(", ")}</span>
+      <span class="virtue-copy">
+        <strong>${virtue.title}</strong>
+        <span class="virtue-fruits">${virtue.fruits.join(", ")}</span>
+      </span>
+      <span class="virtue-rank" aria-hidden="true">${index + 1}</span>
     </button>
   `).join("");
 }
